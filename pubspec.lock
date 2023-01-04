@@ -8,7 +8,11 @@ packages:
       sha256: bfe67ef28df125b7dddcea62755991f807aa39a2492a23e1550161692950bbe0
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "2.10.0"
+=======
+    version: "2.9.0"
+>>>>>>> 820bd4348c7d5d1be5c9f62060b2696046831d3c
   boolean_selector:
     dependency: transitive
     description:
@@ -98,7 +102,11 @@ packages:
       sha256: "16db949ceee371e9b99d22f88fa3a73c4e59fd0afed0bd25fc336eb76c198b72"
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "0.12.13"
+=======
+    version: "0.12.12"
+>>>>>>> 820bd4348c7d5d1be5c9f62060b2696046831d3c
   material_color_utilities:
     dependency: transitive
     description:
@@ -106,7 +114,11 @@ packages:
       sha256: d92141dc6fe1dad30722f9aa826c7fbc896d021d792f80678280601aff8cf724
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "0.2.0"
+=======
+    version: "0.1.5"
+>>>>>>> 820bd4348c7d5d1be5c9f62060b2696046831d3c
   meta:
     dependency: transitive
     description:
@@ -135,7 +147,11 @@ packages:
       sha256: dd904f795d4b4f3b870833847c461801f6750a9fa8e61ea5ac53f9422b31f250
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "1.9.1"
+=======
+    version: "1.9.0"
+>>>>>>> 820bd4348c7d5d1be5c9f62060b2696046831d3c
   stack_trace:
     dependency: transitive
     description:
@@ -159,7 +175,11 @@ packages:
       sha256: "556692adab6cfa87322a115640c11f13cb77b3f076ddcc5d6ae3c20242bedcde"
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "1.2.0"
+=======
+    version: "1.1.1"
+>>>>>>> 820bd4348c7d5d1be5c9f62060b2696046831d3c
   term_glyph:
     dependency: transitive
     description:
@@ -175,7 +195,11 @@ packages:
       sha256: ad540f65f92caa91bf21dfc8ffb8c589d6e4dc0c2267818b4cc2792857706206
       url: "https://pub.dev"
     source: hosted
+<<<<<<< HEAD
     version: "0.4.16"
+=======
+    version: "0.4.12"
+>>>>>>> 820bd4348c7d5d1be5c9f62060b2696046831d3c
   vector_math:
     dependency: transitive
     description:
