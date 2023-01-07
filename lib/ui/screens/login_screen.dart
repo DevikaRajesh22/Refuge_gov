@@ -14,10 +14,14 @@ class LoginScreen extends StatelessWidget {
               width: 400,
               // ignore: prefer_const_literals_to_create_immutables
               decoration: const BoxDecoration(
-                gradient: LinearGradient(colors: [
-                  Color.fromARGB(255, 2, 9, 98),
-                  Color.fromARGB(255, 0, 108, 174),
-                ], begin: Alignment.bottomCenter, end: Alignment.topCenter),
+                gradient: LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 0, 119, 182),
+                    Color.fromARGB(255, 3, 4, 94),
+                  ],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),
               ),
               child: Column(
                 children: [
@@ -27,8 +31,8 @@ class LoginScreen extends StatelessWidget {
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          Color.fromARGB(255, 0, 108, 174),
-                          Color.fromARGB(255, 2, 9, 98),
+                          Color.fromARGB(255, 0, 119, 182),
+                          Color.fromARGB(255, 3, 4, 94),
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomLeft,
