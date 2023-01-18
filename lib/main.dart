@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:refuge_govt/ui/screens/dashboard_screen.dart';
+import 'package:refuge_govt/ui/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const DashboardScreen(),
+      debugShowCheckedModeBanner: false,
+      home: const LoginScreen(),
     );
   }
 }

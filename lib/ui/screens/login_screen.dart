@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -41,13 +42,14 @@ class LoginScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Container(
-                          height: 50,
-                          width: 50,
-                          color: Colors.white,
+                        Image.asset(
+                          'assets/images/logo.png',
+                          height: 90,
+                          width: 90,
                         ),
+                        //image
                         const SizedBox(
-                          height: 10,
+                          height: 5,
                         ),
                         const Text(
                           "REFUGE",
@@ -98,12 +100,12 @@ class LoginScreen extends StatelessWidget {
                               size: 30,
                             ),
                             Icon(
-                              Icons.facebook_rounded,
+                              LineIcons.twitter,
                               color: Color.fromARGB(220, 255, 255, 255),
                               size: 30,
                             ),
                             Icon(
-                              Icons.facebook_rounded,
+                              LineIcons.linkedinIn,
                               color: Color.fromARGB(220, 255, 255, 255),
                               size: 30,
                             ),
@@ -205,7 +207,7 @@ class LoginScreen extends StatelessWidget {
                       SizedBox(
                         width: 250,
                         child: Material(
-                          elevation: 4,
+                          elevation: 6,
                           color: const Color.fromARGB(255, 2, 56, 134),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -221,7 +223,7 @@ class LoginScreen extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: const [
-                                Text('Update'),
+                                Text('Login'),
                               ],
                             ),
                           ),
