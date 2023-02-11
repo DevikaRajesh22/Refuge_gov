@@ -175,7 +175,7 @@ class LoginScreen extends StatelessWidget {
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Email Address',
-                            hintText: 'mail@user.com'),
+                            hintText: 'mail@user.com',),
                       ),
                       const SizedBox(
                         height: 10,
@@ -197,7 +197,7 @@ class LoginScreen extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 69, 30, 197)),
+                                color: Color.fromARGB(255, 69, 30, 197),),
                           ),
                         ], //row children
                       ),

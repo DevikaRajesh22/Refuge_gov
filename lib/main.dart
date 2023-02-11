@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:refuge_govt/ui/screens/login_screen.dart';
+import 'package:refuge_govt/ui/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const LoginScreen(),
+      home: const Home(),
     );
   }
 }
