@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -51,44 +52,44 @@ class LoginScreen extends StatelessWidget {
                         const SizedBox(
                           height: 5,
                         ),
-                        const Text(
+                        Text(
                           "REFUGE",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
-                            color: Color.fromARGB(220, 255, 255, 255),
-                            fontSize: 35,
-                            fontWeight: FontWeight.w700,
+                          style: GoogleFonts.inriaSerif(
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold,
+                            color: const Color.fromARGB(255, 255, 255, 255),
                           ),
                         ),
                         const SizedBox(
                           height: 225,
                         ),
-                        const Text(
+                        Text(
                           "We are for you",
                           textAlign: TextAlign.left,
-                          style: TextStyle(
-                            color: Color.fromARGB(220, 255, 255, 255),
-                            fontSize: 23,
-                            fontWeight: FontWeight.w500,
+                          style: GoogleFonts.inriaSans(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: const Color.fromARGB(255, 255, 255, 255),
                           ),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 340,
                           child: Text(
                             'No matter where you are, you deserve love, respect, and kindness. And we make sure you receive our best services...',
                             textAlign: TextAlign.left,
-                            style: TextStyle(
-                              color: Color.fromARGB(220, 255, 255, 255),
+                            style: GoogleFonts.inriaSans(
                               fontSize: 17,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.w500,
+                              color: const Color.fromARGB(255, 255, 255, 255),
                             ),
                           ),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
                         Wrap(
                           spacing: 15,
@@ -117,26 +118,29 @@ class LoginScreen extends StatelessWidget {
                         Wrap(
                           spacing: 15,
                           crossAxisAlignment: WrapCrossAlignment.start,
-                          children: const [
+                          children: [
                             Text(
                               'Privacy policy',
-                              style: TextStyle(
-                                  fontSize: 13,
-                                  color: Color.fromARGB(220, 255, 255, 255)),
+                              style: GoogleFonts.inriaSans(
+                                fontSize: 13,
+                                color: const Color.fromARGB(255, 255, 255, 255),
+                              ),
                             ),
                             Text(
                               'Contact',
-                              style: TextStyle(
-                                  fontSize: 13,
-                                  color: Color.fromARGB(220, 255, 255, 255)),
+                              style: GoogleFonts.inriaSans(
+                                fontSize: 13,
+                                color: const Color.fromARGB(255, 255, 255, 255),
+                              ),
                             ),
                             Text(
                               '@2023 refuge',
-                              style: TextStyle(
-                                  fontSize: 13,
-                                  color: Color.fromARGB(220, 255, 255, 255)),
+                              style: GoogleFonts.inriaSans(
+                                fontSize: 13,
+                                color: const Color.fromARGB(255, 255, 255, 255),
+                              ),
                             ),
-                          ], //children
+                          ],
                         ),
                         const SizedBox(
                           height: 80,
@@ -156,48 +160,55 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Text(
+                      Text(
                         textAlign: TextAlign.center,
                         'Welcome Back, Admin User',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 69, 30, 197),
+                        style: GoogleFonts.inriaSans(
+                          fontSize: 30,
                           fontWeight: FontWeight.bold,
-                          fontSize: 30.0,
+                          color: const Color.fromARGB(255, 69, 30, 197),
                         ),
                       ),
-                      const Text(
+                      Text(
                         'Sign in by entering the information below',
+                        style: GoogleFonts.inriaSans(
+                          fontSize: 17,
+                          color: const Color.fromARGB(200, 0, 0, 0),
+                        ),
                       ),
                       const SizedBox(
                         height: 50,
                       ),
                       const TextField(
                         decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Email Address',
-                            hintText: 'mail@user.com',),
+                          border: OutlineInputBorder(),
+                          labelText: 'Email Address',
+                          hintText: 'mail@user.com',
+                        ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       const Padding(padding: EdgeInsets.only(top: 10)),
                       const TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              suffixIcon: Icon(Icons.visibility),
-                              labelText: 'Password',
-                              hintText: 'Enter password')),
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            suffixIcon: Icon(Icons.visibility),
+                            labelText: 'Password',
+                            hintText: 'Enter password'),
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
-                        children: const [
+                        children: [
                           Text(
                             "Forgot password?",
                             textAlign: TextAlign.right,
-                            style: TextStyle(
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                                color: Color.fromARGB(255, 69, 30, 197),),
+                            style: GoogleFonts.inriaSans(
+                              fontSize: 17,
+                              fontWeight: FontWeight.bold,
+                              color: const Color.fromARGB(255, 69, 30, 197),
+                            ),
                           ),
                         ], //row children
                       ),
