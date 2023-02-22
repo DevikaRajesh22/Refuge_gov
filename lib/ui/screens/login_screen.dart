@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:refuge_govt/ui/screens/dashboard_screen.dart';
+
+import '../../widgets/custom_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -217,26 +220,26 @@ class LoginScreen extends StatelessWidget {
                       ),
                       SizedBox(
                         width: 250,
-                        child: Material(
-                          elevation: 6,
-                          color: const Color.fromARGB(255, 2, 56, 134),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                            side: const BorderSide(
-                              color: Color.fromARGB(255, 5, 27, 70),
-                              width: 0.0001,
-                            ),
-                          ),
-                          textStyle: const TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
-                                Text('Login'),
-                              ],
-                            ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomButton(
+                                label: "Login",
+                                buttonColor:
+                                    const Color.fromARGB(255, 3, 4, 94),
+                                labelColor: Colors.white,
+                                elevation: 5,
+                                onPressed: (() {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const DashboardScreen()));
+                                }),
+                              )
+                            ],
                           ),
                         ),
                       ),

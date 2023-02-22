@@ -3,9 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:refuge_govt/ui/screens/calendar_screen.dart';
 import 'package:refuge_govt/ui/screens/dashboard_screen.dart';
 import 'package:refuge_govt/ui/screens/finance_screen.dart';
+import 'package:refuge_govt/ui/screens/login_screen.dart';
 import 'package:refuge_govt/ui/screens/ngo_screen.dart';
 import 'package:refuge_govt/ui/screens/statistics_screen.dart';
 import 'package:refuge_govt/ui/screens/transfer_screen.dart';
+
+import '../../widgets/custom_button.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -171,7 +174,80 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               DrawerItem(
                 icon: Icons.logout_rounded,
                 label: 'Logout',
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => Dialog(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 10,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Logout',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .copyWith(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            const SizedBox(
+                              height: 3,
+                            ),
+                            Text(
+                              'Are you sure you want to logout ?',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelMedium!
+                                  .copyWith(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                CustomButton(
+                                  label: 'Cancel',
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                CustomButton(
+                                  label: 'Logout',
+                                  onPressed: () {
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                LoginScreen()));
+                                  },
+                                  buttonColor: Color.fromARGB(255, 3, 4, 94),
+                                  labelColor: Colors.white,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
               const SizedBox(
                 height: 15,
