@@ -104,8 +104,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 height: 15,
               ),
               DrawerItem(
-                icon: Icons.account_circle_rounded,
-                label: 'Profile',
+                icon: Icons.query_stats,
+                label: 'Statistics',
                 onTap: () {
                   _tabController!.animateTo(1);
                   setState(() {});
@@ -117,8 +117,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 height: 15,
               ),
               DrawerItem(
-                icon: Icons.location_on,
-                label: 'Map',
+                icon: Icons.people_outline,
+                label: 'NGO',
                 onTap: () {
                   _tabController!.animateTo(2);
                   setState(() {});
@@ -130,8 +130,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 height: 15,
               ),
               DrawerItem(
-                icon: Icons.query_stats,
-                label: 'Statistics',
+                icon: Icons.money_sharp,
+                label: 'Finance',
                 onTap: () {
                   _tabController!.animateTo(3);
                   setState(() {});
@@ -143,8 +143,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 height: 15,
               ),
               DrawerItem(
-                icon: Icons.library_books_rounded,
-                label: 'Class',
+                icon: Icons.arrow_back,
+                label: 'Transfer',
                 onTap: () {
                   _tabController!.animateTo(4);
                   setState(() {});
@@ -156,8 +156,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 height: 15,
               ),
               DrawerItem(
-                icon: Icons.notifications,
-                label: 'Notification',
+                icon: Icons.calendar_month,
+                label: 'Calendar',
                 onTap: () {
                   _tabController!.animateTo(5);
                   setState(() {});
