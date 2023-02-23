@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:refuge_govt/ui/screens/dashboard_screen.dart';
+import 'package:refuge_govt/ui/screens/home.dart';
 
 import '../../widgets/custom_button.dart';
 
@@ -235,8 +235,7 @@ class LoginScreen extends StatelessWidget {
                                   Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) =>
-                                              const DashboardScreen()));
+                                          builder: (context) => const Home()));
                                 }),
                               )
                             ],

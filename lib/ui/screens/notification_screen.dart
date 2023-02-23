@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});
@@ -16,12 +17,12 @@ class NotificationScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const SizedBox(
-                        height: 50,
+                        height: 100,
                       ),
-                      const Text(
+                      Text(
                         'Notifications',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 4, 30, 85),
+                        style: GoogleFonts.inriaSans(
+                          color: const Color.fromARGB(255, 4, 30, 85),
                           fontWeight: FontWeight.bold,
                           fontSize: 22,
                         ),

@@ -72,6 +72,11 @@ flutter:
     - assets/images/country.png
     - assets/images/decreases.png
     - assets/images/increase.png
+    - assets/images/people1.png
+    - assets/images/people2.png
+    - assets/images/people3.png
+    - assets/images/people4.png
+    - assets/images/people5.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -17,10 +17,10 @@ class TransferScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       const SizedBox(
-                        height: 30,
+                        height: 100,
                       ),
                       SizedBox(
-                        width: 600,
+                        width: 650,
                         child: Material(
                           elevation: 10,
                           shape: RoundedRectangleBorder(
@@ -36,10 +36,10 @@ class TransferScreen extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    const Icon(
-                                      Icons.account_circle_rounded,
-                                      color: Color.fromARGB(255, 29, 100, 244),
-                                      size: 70,
+                                    Image.asset(
+                                      'assets/images/people1.png',
+                                      height: 50,
+                                      width: 50,
                                     ),
                                     const SizedBox(
                                       width: 10,
@@ -51,7 +51,7 @@ class TransferScreen extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Topic: Go ahead, Dream about the future',
+                                          'Sai Andaman Nicobar Motivation And Education trust',
                                           style: GoogleFonts.inriaSans(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
@@ -60,31 +60,7 @@ class TransferScreen extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          'By: Charlie Jane Anders',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Location: Camp 45',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Date: January 29 2023',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Time: 11:00 am to 12:30 pm',
+                                          ' Near Junglighat Govt. School, \nJunglighat, Port Blair- 744103',
                                           style: GoogleFonts.inriaSans(
                                             fontSize: 14,
                                             color: const Color.fromARGB(
@@ -92,6 +68,18 @@ class TransferScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ],
+                                    ),
+                                    const SizedBox(
+                                      width: 80,
+                                    ),
+                                    Text(
+                                      '10k',
+                                      style: GoogleFonts.inriaSans(
+                                        fontSize: 20,
+                                        color:
+                                            const Color.fromARGB(255, 3, 4, 85),
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -101,10 +89,10 @@ class TransferScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       SizedBox(
-                        width: 600,
+                        width: 650,
                         child: Material(
                           elevation: 10,
                           shape: RoundedRectangleBorder(
@@ -120,10 +108,10 @@ class TransferScreen extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    const Icon(
-                                      Icons.account_circle_rounded,
-                                      color: Color.fromARGB(255, 29, 100, 244),
-                                      size: 70,
+                                    Image.asset(
+                                      'assets/images/people2.png',
+                                      height: 50,
+                                      width: 50,
                                     ),
                                     const SizedBox(
                                       width: 10,
@@ -135,7 +123,7 @@ class TransferScreen extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Topic: The art of stillness',
+                                          'Steps aid india',
                                           style: GoogleFonts.inriaSans(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
@@ -144,31 +132,7 @@ class TransferScreen extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          'By: Pico Iyer',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Date: January 25 2023',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Location: Camp 32',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Time: 11:30 am to 1:00 pm',
+                                          'austinabad brichgunj P. O port Blair south Andaman india - Pin - 744 103',
                                           style: GoogleFonts.inriaSans(
                                             fontSize: 14,
                                             color: const Color.fromARGB(
@@ -176,6 +140,18 @@ class TransferScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ],
+                                    ),
+                                    const SizedBox(
+                                      width: 80,
+                                    ),
+                                    Text(
+                                      '10k',
+                                      style: GoogleFonts.inriaSans(
+                                        fontSize: 20,
+                                        color:
+                                            const Color.fromARGB(255, 3, 4, 85),
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -185,10 +161,10 @@ class TransferScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       SizedBox(
-                        width: 600,
+                        width: 650,
                         child: Material(
                           elevation: 10,
                           shape: RoundedRectangleBorder(
@@ -204,10 +180,10 @@ class TransferScreen extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    const Icon(
-                                      Icons.account_circle_rounded,
-                                      color: Color.fromARGB(255, 29, 100, 244),
-                                      size: 70,
+                                    Image.asset(
+                                      'assets/images/people3.png',
+                                      height: 50,
+                                      width: 50,
                                     ),
                                     const SizedBox(
                                       width: 10,
@@ -219,7 +195,7 @@ class TransferScreen extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Topic: Empathy is not endorsement',
+                                          'Island Development Organization',
                                           style: GoogleFonts.inriaSans(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
@@ -228,31 +204,7 @@ class TransferScreen extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          'By: Dylan Marron',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Date: January 20 2023',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Location: Camp 21',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Time: 10:00 am to 11:30 pm',
+                                          'Santhayalay Building, 1st Floor, Lillypur, Haddo,port Blair',
                                           style: GoogleFonts.inriaSans(
                                             fontSize: 14,
                                             color: const Color.fromARGB(
@@ -260,6 +212,18 @@ class TransferScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ],
+                                    ),
+                                    const SizedBox(
+                                      width: 170,
+                                    ),
+                                    Text(
+                                      '10k',
+                                      style: GoogleFonts.inriaSans(
+                                        fontSize: 20,
+                                        color:
+                                            const Color.fromARGB(255, 3, 4, 85),
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -269,10 +233,10 @@ class TransferScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       SizedBox(
-                        width: 600,
+                        width: 650,
                         child: Material(
                           elevation: 10,
                           shape: RoundedRectangleBorder(
@@ -288,10 +252,10 @@ class TransferScreen extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    const Icon(
-                                      Icons.account_circle_rounded,
-                                      color: Color.fromARGB(255, 29, 100, 244),
-                                      size: 70,
+                                    Image.asset(
+                                      'assets/images/people4.png',
+                                      height: 50,
+                                      width: 50,
                                     ),
                                     const SizedBox(
                                       width: 10,
@@ -303,7 +267,7 @@ class TransferScreen extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Topic: The war in Ukraine could change everything',
+                                          'Snahalaya Ashram',
                                           style: GoogleFonts.inriaSans(
                                             fontSize: 18,
                                             fontWeight: FontWeight.bold,
@@ -312,31 +276,7 @@ class TransferScreen extends StatelessWidget {
                                           ),
                                         ),
                                         Text(
-                                          'By:  Yuval Noah Harari',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Date: January 15 2023',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Location: Camp 12',
-                                          style: GoogleFonts.inriaSans(
-                                            fontSize: 14,
-                                            color: const Color.fromARGB(
-                                                255, 3, 4, 85),
-                                          ),
-                                        ),
-                                        Text(
-                                          'Time: 11:00 am to 12:30 pm',
+                                          ' Pankaj Deep Bhawan , Vip Road, Port Blair',
                                           style: GoogleFonts.inriaSans(
                                             fontSize: 14,
                                             color: const Color.fromARGB(
@@ -344,6 +284,18 @@ class TransferScreen extends StatelessWidget {
                                           ),
                                         ),
                                       ],
+                                    ),
+                                    const SizedBox(
+                                      width: 250,
+                                    ),
+                                    Text(
+                                      '10k',
+                                      style: GoogleFonts.inriaSans(
+                                        fontSize: 20,
+                                        color:
+                                            const Color.fromARGB(255, 3, 4, 85),
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -353,7 +305,79 @@ class TransferScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 20,
+                      ),
+                      SizedBox(
+                        width: 650,
+                        child: Material(
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          color: Colors.white,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 15),
+                            child: Column(
+                              children: [
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/people5.png',
+                                      height: 50,
+                                      width: 50,
+                                    ),
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Capstone Ministries',
+                                          style: GoogleFonts.inriaSans(
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold,
+                                            color: const Color.fromARGB(
+                                                255, 3, 4, 85),
+                                          ),
+                                        ),
+                                        Text(
+                                          ' H. No. 1665, Ward No 23 bird Line',
+                                          style: GoogleFonts.inriaSans(
+                                            fontSize: 14,
+                                            color: const Color.fromARGB(
+                                                255, 3, 4, 85),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      width: 290,
+                                    ),
+                                    Text(
+                                      '10k',
+                                      style: GoogleFonts.inriaSans(
+                                        fontSize: 20,
+                                        color:
+                                            const Color.fromARGB(255, 3, 4, 85),
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
                       ),
                     ],
                   ),
