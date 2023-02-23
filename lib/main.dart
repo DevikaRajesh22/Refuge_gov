@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:refuge_govt/ui/screens/finance_screen.dart';
+import 'package:refuge_govt/ui/screens/ngo_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const FinanceScreen(),
+      home: const NgoScreen(),
     );
   }
 }
