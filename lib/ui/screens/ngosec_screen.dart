@@ -56,7 +56,7 @@ class NgosecScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  height: 550,
+                  height: 500,
                   width: 500,
                   child: Material(
                     elevation: 10,
@@ -162,7 +162,7 @@ class NgosecScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: SizedBox(
-                  height: 550,
+                  height: 500,
                   width: 500,
                   child: Material(
                     elevation: 10,
