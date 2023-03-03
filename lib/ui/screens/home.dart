@@ -35,6 +35,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 2, 9, 98),
         actions: const [
           Padding(
             padding: EdgeInsets.all(4.0),
@@ -71,7 +72,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         ],
       ),
       drawer: Drawer(
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromARGB(255, 2, 9, 98),
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
