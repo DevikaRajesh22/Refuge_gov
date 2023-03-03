@@ -82,10 +82,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               const SizedBox(
                 height: 35,
               ),
+              const Icon(
+                Icons.account_circle_rounded,
+                size: 80,
+                color: Colors.white,
+              ),
               Text(
-                'REFUGE',
-                style: GoogleFonts.inriaSerif(
-                  fontSize: 33,
+                'Admin',
+                style: GoogleFonts.inriaSans(
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: const Color.fromARGB(255, 255, 255, 255),
                 ),

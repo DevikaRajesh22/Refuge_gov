@@ -145,7 +145,7 @@ class TransferScreen extends StatelessWidget {
                                       width: 80,
                                     ),
                                     Text(
-                                      '10k',
+                                      '-12k',
                                       style: GoogleFonts.inriaSans(
                                         fontSize: 20,
                                         color:
@@ -217,7 +217,7 @@ class TransferScreen extends StatelessWidget {
                                       width: 170,
                                     ),
                                     Text(
-                                      '10k',
+                                      '1k',
                                       style: GoogleFonts.inriaSans(
                                         fontSize: 20,
                                         color:
@@ -289,7 +289,7 @@ class TransferScreen extends StatelessWidget {
                                       width: 250,
                                     ),
                                     Text(
-                                      '10k',
+                                      '-2k',
                                       style: GoogleFonts.inriaSans(
                                         fontSize: 20,
                                         color:
@@ -361,7 +361,7 @@ class TransferScreen extends StatelessWidget {
                                       width: 290,
                                     ),
                                     Text(
-                                      '10k',
+                                      '-9k',
                                       style: GoogleFonts.inriaSans(
                                         fontSize: 20,
                                         color:
