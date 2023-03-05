@@ -135,7 +135,7 @@ class StatisticssecScreen extends StatelessWidget {
                                       Column(
                                         children: [
                                           Text(
-                                            'Top 5 countries by origin',
+                                            'Top 5 states by origin',
                                             style: GoogleFonts.inriaSans(
                                               fontSize: 20,
                                               color: const Color.fromARGB(
@@ -147,7 +147,7 @@ class StatisticssecScreen extends StatelessWidget {
                                             height: 10,
                                           ),
                                           Image.asset(
-                                            'assets/images/country.png',
+                                            'assets/images/state.png',
                                             height: 230,
                                             width: 600,
                                           ),

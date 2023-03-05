@@ -64,7 +64,7 @@ class StatisticsScreen extends StatelessWidget {
                                           RefugeBreakdownItem(
                                             icons: Icons.woman,
                                             label: '35k',
-                                            text: 'Total adult female',
+                                            text: 'Total female',
                                           ),
                                           SizedBox(
                                             width: 30,
@@ -72,7 +72,7 @@ class StatisticsScreen extends StatelessWidget {
                                           RefugeBreakdownItem(
                                             icons: Icons.man,
                                             label: '33k',
-                                            text: 'Total adult male',
+                                            text: 'Total male',
                                           ),
                                           SizedBox(
                                             width: 30,

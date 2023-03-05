@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:refuge_govt/ui/screens/home.dart';
+import 'package:refuge_govt/ui/screens/statisticssec_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Home(),
+      home: StatisticssecScreen(),
     );
   }
 }

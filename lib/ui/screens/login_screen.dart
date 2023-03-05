@@ -228,7 +228,7 @@ class LoginScreen extends StatelessWidget {
                               CustomButton(
                                 label: "Login",
                                 buttonColor:
-                                    const Color.fromARGB(255, 3, 4, 94),
+                                    const Color.fromARGB(255, 21, 23, 146),
                                 labelColor: Colors.white,
                                 elevation: 5,
                                 onPressed: (() {

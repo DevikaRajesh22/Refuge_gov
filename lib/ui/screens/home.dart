@@ -35,7 +35,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 2, 9, 98),
+        backgroundColor: const Color.fromARGB(255, 40, 50, 189),
         actions: const [
           Padding(
             padding: EdgeInsets.all(4.0),
@@ -72,193 +72,205 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         ],
       ),
       drawer: Drawer(
-        backgroundColor: const Color.fromARGB(255, 2, 9, 98),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 20,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              const SizedBox(
-                height: 35,
-              ),
-              const Icon(
-                Icons.account_circle_rounded,
-                size: 80,
-                color: Colors.white,
-              ),
-              Text(
-                'Admin',
-                style: GoogleFonts.inriaSans(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                ),
-              ),
-              const SizedBox(
-                height: 60,
-              ),
-              DrawerItem(
-                icon: Icons.dashboard_sharp,
-                label: 'Dashboard',
-                onTap: () {
-                  _tabController!.animateTo(0);
-                  setState(() {});
-                  Navigator.pop(context);
-                },
-                isSelected: _tabController!.index == 0,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              DrawerItem(
-                icon: Icons.query_stats,
-                label: 'Statistics',
-                onTap: () {
-                  _tabController!.animateTo(1);
-                  setState(() {});
-                  Navigator.pop(context);
-                },
-                isSelected: _tabController!.index == 1,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              DrawerItem(
-                icon: Icons.people_outline,
-                label: 'NGO',
-                onTap: () {
-                  _tabController!.animateTo(2);
-                  setState(() {});
-                  Navigator.pop(context);
-                },
-                isSelected: _tabController!.index == 2,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              DrawerItem(
-                icon: Icons.money_sharp,
-                label: 'Finance',
-                onTap: () {
-                  _tabController!.animateTo(3);
-                  setState(() {});
-                  Navigator.pop(context);
-                },
-                isSelected: _tabController!.index == 3,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              DrawerItem(
-                icon: Icons.arrow_back,
-                label: 'Transfer',
-                onTap: () {
-                  _tabController!.animateTo(4);
-                  setState(() {});
-                  Navigator.pop(context);
-                },
-                isSelected: _tabController!.index == 4,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              DrawerItem(
-                icon: Icons.calendar_month,
-                label: 'Calendar',
-                onTap: () {
-                  _tabController!.animateTo(5);
-                  setState(() {});
-                  Navigator.pop(context);
-                },
-                isSelected: _tabController!.index == 5,
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              DrawerItem(
-                icon: Icons.logout_rounded,
-                label: 'Logout',
-                onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (_) => Dialog(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 15,
-                          vertical: 10,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              'Logout',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelLarge!
-                                  .copyWith(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                            const SizedBox(
-                              height: 3,
-                            ),
-                            Text(
-                              'Are you sure you want to logout ?',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .labelMedium!
-                                  .copyWith(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                            ),
-                            const SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                CustomButton(
-                                  label: 'Cancel',
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                CustomButton(
-                                  label: 'Logout',
-                                  onPressed: () {
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                LoginScreen()));
-                                  },
-                                  buttonColor: Color.fromARGB(255, 3, 4, 94),
-                                  labelColor: Colors.white,
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(
-                height: 15,
-              ),
+        elevation: 12,
+        child: Container(
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color.fromARGB(255, 0, 108, 174),
+              Color.fromARGB(255, 0, 4, 63),
             ],
+          )),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 35,
+                ),
+                const Icon(
+                  Icons.account_circle_rounded,
+                  size: 80,
+                  color: Colors.white,
+                ),
+                Text(
+                  'Admin',
+                  style: GoogleFonts.inriaSans(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                  ),
+                ),
+                const SizedBox(
+                  height: 60,
+                ),
+                DrawerItem(
+                  icon: Icons.dashboard_sharp,
+                  label: 'Dashboard',
+                  onTap: () {
+                    _tabController!.animateTo(0);
+                    setState(() {});
+                    Navigator.pop(context);
+                  },
+                  isSelected: _tabController!.index == 0,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                DrawerItem(
+                  icon: Icons.query_stats,
+                  label: 'Statistics',
+                  onTap: () {
+                    _tabController!.animateTo(1);
+                    setState(() {});
+                    Navigator.pop(context);
+                  },
+                  isSelected: _tabController!.index == 1,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                DrawerItem(
+                  icon: Icons.people_outline,
+                  label: 'NGO',
+                  onTap: () {
+                    _tabController!.animateTo(2);
+                    setState(() {});
+                    Navigator.pop(context);
+                  },
+                  isSelected: _tabController!.index == 2,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                DrawerItem(
+                  icon: Icons.money_sharp,
+                  label: 'Finance',
+                  onTap: () {
+                    _tabController!.animateTo(3);
+                    setState(() {});
+                    Navigator.pop(context);
+                  },
+                  isSelected: _tabController!.index == 3,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                DrawerItem(
+                  icon: Icons.arrow_back,
+                  label: 'Transfer',
+                  onTap: () {
+                    _tabController!.animateTo(4);
+                    setState(() {});
+                    Navigator.pop(context);
+                  },
+                  isSelected: _tabController!.index == 4,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                DrawerItem(
+                  icon: Icons.calendar_month,
+                  label: 'Calendar',
+                  onTap: () {
+                    _tabController!.animateTo(5);
+                    setState(() {});
+                    Navigator.pop(context);
+                  },
+                  isSelected: _tabController!.index == 5,
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                DrawerItem(
+                  icon: Icons.logout_rounded,
+                  label: 'Logout',
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (_) => Dialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 15,
+                            vertical: 10,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'Logout',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelLarge!
+                                    .copyWith(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                              const SizedBox(
+                                height: 3,
+                              ),
+                              Text(
+                                'Are you sure you want to logout ?',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .labelMedium!
+                                    .copyWith(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                              const SizedBox(
+                                height: 15,
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  CustomButton(
+                                    label: 'Cancel',
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
+                                  CustomButton(
+                                    label: 'Logout',
+                                    onPressed: () {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const LoginScreen()));
+                                    },
+                                    buttonColor:
+                                        const Color.fromARGB(255, 3, 4, 94),
+                                    labelColor: Colors.white,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+              ],
+            ),
           ),
         ),
       ),
