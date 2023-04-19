@@ -39,11 +39,6 @@ class _CustomSearchState extends State<CustomSearch> {
               controller: _searchController,
               obscureText: false,
               decoration: const InputDecoration(
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: 20,
-                  vertical: 10,
-                ),
-                border: InputBorder.none,
                 hintText: 'Search',
               ),
             ),

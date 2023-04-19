@@ -18,8 +18,9 @@ class DashCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       onPressed: onPressed,
+      color: Colors.white54,
       child: SizedBox(
-        width: 230,
+        width: 250,
         child: Padding(
           padding: const EdgeInsets.only(
             left: 20,
