@@ -1,63 +1,50 @@
 import 'package:flutter/material.dart';
 
+import 'custom_card.dart';
+
 class CustomButton extends StatelessWidget {
-  final String label;
   final Function() onPressed;
-  final IconData? icon;
-  final Color? buttonColor, iconColor, labelColor;
-  final double elevation;
+  final String label;
+  final Color? color, labelColor;
+  final bool isLoading;
   const CustomButton({
-    Key? key,
-    required this.label,
+    super.key,
     required this.onPressed,
-    this.icon,
-    this.buttonColor,
-    this.iconColor,
+    required this.label,
+    this.color,
     this.labelColor,
-    this.elevation = 0,
-  }) : super(key: key);
+    this.isLoading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: buttonColor ?? Colors.white,
-      elevation: elevation,
-      borderRadius: BorderRadius.circular(10),
-      child: InkWell(
-        onTap: onPressed,
-        borderRadius: BorderRadius.circular(10),
-        child: Padding(
-          padding: EdgeInsets.only(
-            left: 20,
-            right: icon != null ? 10 : 20,
-            top: 10,
-            bottom: 10,
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: icon != null
-                ? MainAxisAlignment.spaceBetween
-                : MainAxisAlignment.center,
-            children: [
-              Text(
-                label,
-                style: Theme.of(context).textTheme.button?.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: labelColor,
+    return CustomCard(
+      onPressed: onPressed,
+      color: color ?? Colors.blue[900],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 15,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            isLoading
+                ? const SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: CircularProgressIndicator(
+                      strokeWidth: 1.5,
                     ),
-              ),
-              SizedBox(
-                width: icon != null ? 5 : 0,
-              ),
-              icon != null
-                  ? Icon(
-                      icon!,
-                      color: iconColor,
-                      size: 20,
-                    )
-                  : const SizedBox()
-            ],
-          ),
+                  )
+                : Text(
+                    label,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: labelColor ?? Colors.white,
+                        ),
+                  ),
+          ],
         ),
       ),
     );
