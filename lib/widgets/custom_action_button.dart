@@ -19,14 +19,14 @@ class CustomActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: color.withOpacity(.1),
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(30),
       child: InkWell(
         onTap: onPressed,
         hoverColor: color.withOpacity(.15),
         focusColor: color.withOpacity(.15),
         highlightColor: color.withOpacity(.15),
         splashColor: color.withOpacity(.2),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(30),
         child: Padding(
           padding: const EdgeInsets.only(
             left: 10,
