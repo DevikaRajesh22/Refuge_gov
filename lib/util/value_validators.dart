@@ -1,51 +1,75 @@
-// Function to validate email format
-String? validateEmail(String? value) {
+String? alphaNumericValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'Please enter your email address';
-  } else if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+    return 'Please enter some text';
+  }
+  final RegExp nameExp = RegExp(r'^[a-zA-Z0-9 ]+$');
+  if (!nameExp.hasMatch(value)) {
+    return 'Please enter only alphanumeric characters';
+  }
+  return null;
+}
+
+String? numericValidator(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter some text';
+  }
+  final RegExp nameExp = RegExp(r'^[0-9]+$');
+  if (!nameExp.hasMatch(value)) {
+    return 'Please enter only numeric characters';
+  }
+  return null;
+}
+
+String? decimalValidator(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter some text';
+  }
+  final RegExp nameExp = RegExp(r'^\d+(\.\d+)?$');
+  if (!nameExp.hasMatch(value)) {
+    return 'Please enter a valid number';
+  }
+  return null;
+}
+
+String? emailValidator(String? value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter some text';
+  }
+  final RegExp emailExp =
+      RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+  if (!emailExp.hasMatch(value)) {
     return 'Please enter a valid email address';
   }
   return null;
 }
 
-// Function to validate Indian phone number format
-String? validatePhoneNumber(String? value) {
+String? passwordValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'Please enter your phone number';
-  } else if (!RegExp(r'^\+?91[6-9]\d{9}$').hasMatch(value)) {
-    return 'Please enter a valid Indian phone number';
+    return 'Please enter some text';
+  }
+  if (value.length < 6) {
+    return 'Password must be at least 6 characters long';
   }
   return null;
 }
 
-// Function to validate password format
-String? validatePassword(String? value) {
+String? confirmPasswordValidator(String? value, String? password) {
   if (value == null || value.isEmpty) {
-    return 'Please enter a password';
-  } else if (!RegExp(
-          r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$')
-      .hasMatch(value)) {
-    return 'Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character';
+    return 'Please enter some text';
+  }
+  if (value != password) {
+    return 'Passwords do not match';
   }
   return null;
 }
 
-// Function to validate alphanumeric format
-String? validateAlphanumeric(String? value) {
+String? phoneValidator(String? value) {
   if (value == null || value.isEmpty) {
-    return 'Please enter a value';
-  } else if (!RegExp(r'^[a-zA-Z0-9]+$').hasMatch(value)) {
-    return 'Value must contain only alphanumeric characters';
+    return 'Please enter some text';
   }
-  return null;
-}
-
-// Function to validate numeric format
-String? validateNumeric(String? value) {
-  if (value == null || value.isEmpty) {
-    return 'Please enter a value';
-  } else if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
-    return 'Value must contain only numeric characters';
+  final RegExp phoneExp = RegExp(r'^\d{10}$');
+  if (!phoneExp.hasMatch(value)) {
+    return 'Please enter a valid 10-digit phone number';
   }
   return null;
 }

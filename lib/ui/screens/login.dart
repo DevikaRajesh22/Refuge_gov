@@ -147,7 +147,7 @@ class _LoginState extends State<Login> {
                                       child: TextFormField(
                                         controller: _emailController,
                                         obscureText: false,
-                                        validator: validateEmail,
+                                        validator: emailValidator,
                                         decoration: const InputDecoration(
                                           labelText: 'Email',
                                         ),
