@@ -6,6 +6,7 @@ import 'package:refuge_govt/ui/screens/home_screen_sections/emergency_service_re
 import 'package:refuge_govt/ui/screens/home_screen_sections/emergency_services.dart';
 import 'package:refuge_govt/ui/screens/home_screen_sections/hazard_section.dart';
 import 'package:refuge_govt/ui/screens/home_screen_sections/ngos_Section.dart';
+import 'package:refuge_govt/ui/screens/home_screen_sections/notifications.dart';
 import 'package:refuge_govt/ui/screens/home_screen_sections/suggestions.dart';
 
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -45,8 +46,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
 
     _tabController = TabController(
-      length: 9,
-      initialIndex: 0,
+      length: 10,
+      initialIndex: 9,
       vsync: this,
     );
     super.initState();
@@ -72,6 +73,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         return 'Complaints';
       case 8:
         return 'Suggestions';
+      case 9:
+        return 'Notifications';
 
       default:
         return 'Dashboard';
@@ -106,7 +109,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           DisasterSection(),
           EmergencyServicesSection(),
           ComplaintsSection(),
-          SuggestionsSection()
+          SuggestionsSection(),
+          NotificationsSection(),
         ],
       ),
       drawer: Drawer(
@@ -243,6 +247,19 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   Navigator.pop(context);
                 },
                 isSelected: _tabController!.index == 8,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              DrawerButton(
+                iconData: Icons.notifications,
+                label: 'Notifications',
+                onPressed: () {
+                  _tabController!.animateTo(9);
+                  setState(() {});
+                  Navigator.pop(context);
+                },
+                isSelected: _tabController!.index == 9,
               ),
               const SizedBox(
                 height: 20,
