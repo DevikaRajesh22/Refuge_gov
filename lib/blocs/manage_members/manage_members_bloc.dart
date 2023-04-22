@@ -18,16 +18,19 @@ class ManageMembersBloc extends Bloc<ManageMembersEvent, ManageMembersState> {
 
       try {
         if (event is GetAllMembersEvent) {
-          List<dynamic> temp = await queryTable
-              .select('*')
-              .eq(
-                'user_id',
-                supabaseClient.auth.currentUser!.id,
-              )
-              .order(
-                'name',
-                ascending: true,
-              );
+          List<dynamic> temp = [];
+
+          if (event.campId != null) {
+            temp = await queryTable
+                .select('*')
+                .eq('camp_id', event.campId)
+                .order('name', ascending: true);
+          } else {
+            temp = await queryTable
+                .select('*')
+                .is_('camp_id', null)
+                .order('name', ascending: true);
+          }
 
           List<Map<String, dynamic>> members =
               temp.map((e) => e as Map<String, dynamic>).toList();
@@ -64,6 +67,11 @@ class ManageMembersBloc extends Bloc<ManageMembersEvent, ManageMembersState> {
             'gender': event.gender,
             'dob': event.dob,
             'disaster_id': event.disasterId,
+          }).eq('id', event.memberId);
+          add(GetAllMembersEvent());
+        } else if (event is AssignCampMemberEvent) {
+          await queryTable.update({
+            'camp_id': event.campId,
           }).eq('id', event.memberId);
           add(GetAllMembersEvent());
         } else if (event is DeleteMemberEvent) {

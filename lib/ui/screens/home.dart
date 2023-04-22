@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:refuge_govt/ui/screens/home_screen_sections/camp_management_section.dart';
 import 'package:refuge_govt/ui/screens/home_screen_sections/camps_and_refugees.dart';
 import 'package:refuge_govt/ui/screens/home_screen_sections/complaints.dart';
 import 'package:refuge_govt/ui/screens/home_screen_sections/disasters_section.dart';
@@ -46,7 +47,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     );
 
     _tabController = TabController(
-      length: 10,
+      length: 11,
       initialIndex: 0,
       vsync: this,
     );
@@ -62,7 +63,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       case 2:
         return 'Emergency Service Requests';
       case 3:
-        return 'Camps & Refugees';
+        return 'Refugees';
       case 4:
         return 'NGOs Management';
       case 5:
@@ -75,6 +76,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         return 'Suggestions';
       case 9:
         return 'Notifications';
+      case 10:
+        return 'Camps';
 
       default:
         return 'Dashboard';
@@ -111,6 +114,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           ComplaintsSection(),
           SuggestionsSection(),
           NotificationsSection(),
+          CampManagementSection(),
         ],
       ),
       drawer: Drawer(
@@ -174,14 +178,27 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 height: 20,
               ),
               DrawerButton(
-                iconData: Icons.holiday_village,
-                label: 'Camps & Refugees',
+                iconData: Icons.people,
+                label: 'Refugees',
                 onPressed: () {
                   _tabController!.animateTo(3);
                   setState(() {});
                   Navigator.pop(context);
                 },
                 isSelected: _tabController!.index == 3,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              DrawerButton(
+                iconData: Icons.holiday_village,
+                label: 'Camps',
+                onPressed: () {
+                  _tabController!.animateTo(10);
+                  setState(() {});
+                  Navigator.pop(context);
+                },
+                isSelected: _tabController!.index == 10,
               ),
               const SizedBox(
                 height: 20,

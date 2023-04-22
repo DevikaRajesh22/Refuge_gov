@@ -1,8 +1,26 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:refuge_govt/blocs/dashboard_count/dashboard_count_bloc.dart';
 import 'package:refuge_govt/widgets/dashcard.dart';
 
-class DashboardScreen extends StatelessWidget {
+import '../../../widgets/custom_alert_dialog.dart';
+
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  final DashboardCountBloc dashboardCountBloc = DashboardCountBloc();
+
+  @override
+  void initState() {
+    super.initState();
+    dashboardCountBloc.add(DashboardCountEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,55 +32,82 @@ class DashboardScreen extends StatelessWidget {
           width: double.infinity,
           height: double.infinity,
         ),
-        Center(
-          child: SizedBox(
-            width: 1100,
-            child: Wrap(
-              spacing: 20,
-              runSpacing: 20,
-              children: const [
-                DashCard(
-                  label: 'Hazard Requests',
-                  value: '10000',
-                  iconData: Icons.warning,
-                ),
-                DashCard(
-                  label: 'Emergency Requests',
-                  value: '10000',
-                  iconData: Icons.report,
-                ),
-                DashCard(
-                  label: 'Refugees',
-                  value: '10000',
-                  iconData: Icons.people,
-                ),
-                DashCard(
-                  label: 'Camps',
-                  value: '10000',
-                  iconData: Icons.holiday_village,
-                ),
-                DashCard(
-                  label: 'Disasters',
-                  value: '10000',
-                  iconData: Icons.landscape,
-                ),
-                DashCard(
-                  label: 'NGOs',
-                  value: '10000',
-                  iconData: Icons.business,
-                ),
-                DashCard(
-                  label: 'Complaints',
-                  value: '10000',
-                  iconData: Icons.info,
-                ),
-                DashCard(
-                  label: 'Suggestions',
-                  value: '10000',
-                  iconData: Icons.offline_bolt,
-                ),
-              ],
-            ),
+        BlocProvider<DashboardCountBloc>.value(
+          value: dashboardCountBloc,
+          child: BlocConsumer<DashboardCountBloc, DashboardCountState>(
+            listener: (context, state) {
+              if (state is DashboardCountFailureState) {
+                showDialog(
+                  context: context,
+                  builder: (context) => CustomAlertDialog(
+                    title: 'Failed',
+                    message: state.message,
+                    primaryButtonLabel: 'Try Again',
+                    primaryOnPressed: () {
+                      dashboardCountBloc.add(DashboardCountEvent());
+                      Navigator.pop(context);
+                    },
+                  ),
+                );
+              }
+            },
+            builder: (context, state) {
+              return Center(
+                child: state is DashboardCountSuccessState
+                    ? SizedBox(
+                        width: 1100,
+                        child: Wrap(
+                          spacing: 20,
+                          runSpacing: 20,
+                          children: [
+                            DashCard(
+                              label: 'Hazard Requests',
+                              value: state.dashbordCount['hazard'],
+                              iconData: Icons.warning,
+                            ),
+                            DashCard(
+                              label: 'Emergency Requests',
+                              value: state.dashbordCount['service_requests'],
+                              iconData: Icons.report,
+                            ),
+                            DashCard(
+                              label: 'Refugees',
+                              value: state.dashbordCount['refugees'],
+                              iconData: Icons.people,
+                            ),
+                            DashCard(
+                              label: 'Camps',
+                              value: state.dashbordCount['camps'],
+                              iconData: Icons.holiday_village,
+                            ),
+                            DashCard(
+                              label: 'Disasters',
+                              value: state.dashbordCount['disasters'],
+                              iconData: Icons.landscape,
+                            ),
+                            DashCard(
+                              label: 'NGOs',
+                              value: state.dashbordCount['ngos'],
+                              iconData: Icons.business,
+                            ),
+                            DashCard(
+                              label: 'Complaints',
+                              value: state.dashbordCount['complaints'],
+                              iconData: Icons.info,
+                            ),
+                            DashCard(
+                              label: 'Suggestions',
+                              value: state.dashbordCount['suggestions'],
+                              iconData: Icons.offline_bolt,
+                            ),
+                          ],
+                        ),
+                      )
+                    : const Center(
+                        child: CupertinoActivityIndicator(),
+                      ),
+              );
+            },
           ),
         ),
       ],

@@ -5,8 +5,12 @@ abstract class ManageMembersEvent {}
 
 class GetAllMembersEvent extends ManageMembersEvent {
   final String? query;
+  final int? campId;
 
-  GetAllMembersEvent({this.query});
+  GetAllMembersEvent({
+    this.query,
+    this.campId,
+  });
 }
 
 class AddMemberEvent extends ManageMembersEvent {
@@ -39,5 +43,15 @@ class DeleteMemberEvent extends ManageMembersEvent {
 
   DeleteMemberEvent({
     required this.memberId,
+  });
+}
+
+class AssignCampMemberEvent extends ManageMembersEvent {
+  final int memberId;
+  final int? campId;
+
+  AssignCampMemberEvent({
+    required this.memberId,
+    required this.campId,
   });
 }
