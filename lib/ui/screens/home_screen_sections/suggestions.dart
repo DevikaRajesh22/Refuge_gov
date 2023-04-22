@@ -1,38 +1,87 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:refuge_govt/widgets/custom_icon_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
+import '../../../blocs/suggestion/suggestion_bloc.dart';
+import '../../../widgets/custom_alert_dialog.dart';
 import '../../../widgets/custom_card.dart';
 
-class SuggestionsSection extends StatelessWidget {
+class SuggestionsSection extends StatefulWidget {
   const SuggestionsSection({super.key});
 
   @override
+  State<SuggestionsSection> createState() => _SuggestionsSectionState();
+}
+
+class _SuggestionsSectionState extends State<SuggestionsSection> {
+  final SuggestionBloc suggestionsBloc = SuggestionBloc();
+  @override
+  void initState() {
+    super.initState();
+    suggestionsBloc.add(GetAllSuggestionEvent());
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 1000,
-            child: ListView.separated(
-              padding: const EdgeInsets.only(
-                top: 20,
-                bottom: 100,
+    return BlocProvider<SuggestionBloc>.value(
+      value: suggestionsBloc,
+      child: BlocConsumer<SuggestionBloc, SuggestionState>(
+        listener: (context, state) {
+          if (state is SuggestionFailureState) {
+            showDialog(
+              context: context,
+              builder: (context) => CustomAlertDialog(
+                title: 'Failed',
+                message: state.message,
+                primaryButtonLabel: 'Ok',
               ),
-              itemCount: 10,
-              itemBuilder: (context, index) => SuggestionsItem(),
-              separatorBuilder: (context, index) => const SizedBox(height: 10),
+            );
+          }
+        },
+        builder: (context, state) {
+          return SafeArea(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 1000,
+                  child: state is SuggestionSuccessState
+                      ? state.suggestions.isNotEmpty
+                          ? ListView.separated(
+                              padding: const EdgeInsets.only(
+                                top: 20,
+                                left: 20,
+                                right: 20,
+                                bottom: 100,
+                              ),
+                              itemCount: state.suggestions.length,
+                              itemBuilder: (context, index) => SuggestionItem(
+                                suggestionDetails: state.suggestions[index],
+                              ),
+                              separatorBuilder: (context, index) =>
+                                  const SizedBox(height: 10),
+                            )
+                          : const Center(child: Text('No suggestions found'))
+                      : const Center(
+                          child: CupertinoActivityIndicator(),
+                        ),
+                ),
+              ],
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }
 }
 
-class SuggestionsItem extends StatelessWidget {
-  const SuggestionsItem({
+class SuggestionItem extends StatelessWidget {
+  final dynamic suggestionDetails;
+
+  const SuggestionItem({
     super.key,
+    this.suggestionDetails,
   });
 
   @override
@@ -47,26 +96,25 @@ class SuggestionsItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '#123123',
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                      ),
-                ),
-                CustomIconButton(
-                  onPressed: () {},
-                  iconData: Icons.person,
-                ),
-              ],
+            Text(
+              '#${suggestionDetails['id']}',
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black54,
+                  ),
             ),
             const Divider(),
             Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis nulla vestibulum, bibendum magna a, eleifend est. Suspendisse potenti. In hac habitasse platea dictumst. Proin in urna at felis dictum dignissim.',
+              suggestionDetails['suggestion'],
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Colors.black,
+                  ),
+            ),
+            const Divider(),
+            Text(
+              DateFormat('hh:mm a dd/MM/yyyy').format(
+                  DateTime.parse(suggestionDetails['created_at']).toLocal()),
+              style: Theme.of(context).textTheme.labelSmall?.copyWith(
                     color: Colors.black,
                   ),
             ),
