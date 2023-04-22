@@ -24,7 +24,11 @@ class DeleteEmergencyServiceRequestEvent
 
 class GetAllEmergencyServiceRequestsEvent
     extends ManageEmergencyServiceRequestsEvent {
-  final String? query;
+  final String? status;
+  final int? serviceId;
 
-  GetAllEmergencyServiceRequestsEvent({this.query});
+  GetAllEmergencyServiceRequestsEvent({
+    this.status = 'pending',
+    this.serviceId,
+  });
 }

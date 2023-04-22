@@ -1,11 +1,44 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:refuge_govt/widgets/custom_button.dart';
+import 'package:refuge_govt/widgets/custom_dropdown.dart';
+import 'package:refuge_govt/widgets/disaster_selector.dart';
+import 'package:refuge_govt/widgets/emergency_service_selector.dart';
+import 'package:refuge_govt/widgets/label_with_text.dart';
 
-import '../../../widgets/custom_button.dart';
+import '../../../blocs/manage_emergency_service_requests/manage_emergency_service_requests_bloc.dart';
+import '../../../widgets/custom_alert_dialog.dart';
 import '../../../widgets/custom_card.dart';
-import '../../../widgets/custom_dropdown.dart';
+import '../../../widgets/custom_select_box.dart';
 
-class EmergencyServiceRequestsSection extends StatelessWidget {
+class EmergencyServiceRequestsSection extends StatefulWidget {
   const EmergencyServiceRequestsSection({super.key});
+
+  @override
+  State<EmergencyServiceRequestsSection> createState() =>
+      _EmergencyServiceRequestsSectionState();
+}
+
+class _EmergencyServiceRequestsSectionState
+    extends State<EmergencyServiceRequestsSection> {
+  String status = 'pending';
+  int serviceId = 0;
+  final ManageEmergencyServiceRequestsBloc manageEmergencyServicesBloc =
+      ManageEmergencyServiceRequestsBloc();
+
+  void getEmergencyService() {
+    manageEmergencyServicesBloc.add(GetAllEmergencyServiceRequestsEvent(
+      status: status,
+      serviceId: serviceId != 0 ? serviceId : null,
+    ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getEmergencyService();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,72 +46,116 @@ class EmergencyServiceRequestsSection extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            width: 1000,
-            child: Column(
-              children: [
-                const SizedBox(height: 40),
-                Row(
-                  children: [
-                    CustomButton(
-                      onPressed: () {},
-                      label: 'Pending',
+          BlocProvider<ManageEmergencyServiceRequestsBloc>.value(
+            value: manageEmergencyServicesBloc,
+            child: BlocConsumer<ManageEmergencyServiceRequestsBloc,
+                ManageEmergencyServiceRequestsState>(
+              listener: (context, state) {
+                if (state is ManageEmergencyServiceRequestFailureState) {
+                  showDialog(
+                    context: context,
+                    builder: (context) => CustomAlertDialog(
+                      title: 'Failed',
+                      message: state.message,
+                      primaryButtonLabel: 'Try Again',
+                      primaryOnPressed: () {
+                        getEmergencyService();
+                        Navigator.pop(context);
+                      },
                     ),
-                    const SizedBox(width: 20),
-                    CustomButton(
-                      color: Colors.blue[50],
-                      labelColor: Colors.blue[900],
-                      onPressed: () {},
-                      label: 'Accepted',
-                    ),
-                    const SizedBox(width: 20),
-                    CustomButton(
-                      color: Colors.blue[50],
-                      labelColor: Colors.blue[900],
-                      onPressed: () {},
-                      label: 'Completed',
-                    ),
-                    const Expanded(child: SizedBox()),
-                    CustomDropdownButton(
-                      onChange: (value) {},
-                      label: 'Service',
-                      leadingIcon: Icons.bar_chart_outlined,
-                      items: const [
-                        {
-                          'name': 'All',
-                          'value': 'all',
-                        },
-                        {
-                          'name': 'Service1',
-                          'value': 'Extreme',
-                        },
-                        {
-                          'name': 'Service2',
-                          'value': 'serious',
-                        },
-                        {
-                          'name': 'Service3',
-                          'value': 'moderate',
-                        }
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                const Divider(height: 1),
-                Expanded(
-                  child: ListView.separated(
-                    padding: const EdgeInsets.only(
-                      top: 20,
-                      bottom: 100,
-                    ),
-                    itemCount: 10,
-                    itemBuilder: (context, index) => EmergencyItem(),
-                    separatorBuilder: (context, index) =>
-                        const SizedBox(height: 10),
+                  );
+                }
+              },
+              builder: (context, state) {
+                return SizedBox(
+                  width: 1000,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 40),
+                      Row(
+                        children: [
+                          CustomButton(
+                            color: status == 'pending' ? null : Colors.blue[50],
+                            labelColor:
+                                status == 'pending' ? null : Colors.blue[900],
+                            onPressed: () {
+                              status = 'pending';
+                              setState(() {});
+                              getEmergencyService();
+                            },
+                            label: 'Pending',
+                          ),
+                          const SizedBox(width: 20),
+                          CustomButton(
+                            color:
+                                status == 'accepted' ? null : Colors.blue[50],
+                            labelColor:
+                                status == 'accepted' ? null : Colors.blue[900],
+                            onPressed: () {
+                              status = 'accepted';
+                              setState(() {});
+                              getEmergencyService();
+                            },
+                            label: 'Accepted',
+                          ),
+                          const SizedBox(width: 20),
+                          CustomButton(
+                            color:
+                                status == 'completed' ? null : Colors.blue[50],
+                            labelColor:
+                                status == 'completed' ? null : Colors.blue[900],
+                            onPressed: () {
+                              status = 'completed';
+                              setState(() {});
+                              getEmergencyService();
+                            },
+                            label: 'Completed',
+                          ),
+                          const Expanded(child: SizedBox()),
+                          SizedBox(
+                            width: 250,
+                            child: EmergencyServicesSelector(
+                              label: 'Emergency Service',
+                              onSelect: (s) {
+                                serviceId = s;
+                                getEmergencyService();
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      const Divider(height: 1),
+                      Expanded(
+                        child: state
+                                is ManageEmergencyServiceRequestSuccessState
+                            ? state.serviceRequests.isNotEmpty
+                                ? ListView.separated(
+                                    padding: const EdgeInsets.only(
+                                      top: 20,
+                                      bottom: 100,
+                                    ),
+                                    itemCount: state.serviceRequests.length,
+                                    itemBuilder: (context, index) =>
+                                        EmergencyServiceItem(
+                                      serviceDetails:
+                                          state.serviceRequests[index],
+                                    ),
+                                    separatorBuilder: (context, index) =>
+                                        const SizedBox(height: 10),
+                                  )
+                                : const Center(
+                                    child: Text(
+                                        'No emergency service requests found'))
+                            : const Center(
+                                child: CupertinoActivityIndicator(),
+                              ),
+                      ),
+                    ],
                   ),
-                ),
-              ],
+                );
+              },
             ),
           ),
         ],
@@ -87,9 +164,11 @@ class EmergencyServiceRequestsSection extends StatelessWidget {
   }
 }
 
-class EmergencyItem extends StatelessWidget {
-  const EmergencyItem({
+class EmergencyServiceItem extends StatelessWidget {
+  final dynamic serviceDetails;
+  const EmergencyServiceItem({
     super.key,
+    required this.serviceDetails,
   });
 
   @override
@@ -106,16 +185,29 @@ class EmergencyItem extends StatelessWidget {
           children: [
             Row(
               children: [
-                Text(
-                  '#123123',
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                      ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '#${serviceDetails['id']}',
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black54,
+                          ),
+                    ),
+                    const SizedBox(height: 2.5),
+                    Text(
+                      serviceDetails['service']['name'],
+                      style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.orange,
+                          ),
+                    ),
+                  ],
                 ),
                 const Expanded(child: SizedBox()),
                 Text(
-                  'Pending',
+                  serviceDetails['status'],
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.black54,
@@ -123,29 +215,64 @@ class EmergencyItem extends StatelessWidget {
                 ),
               ],
             ),
-            const Divider(),
+            const Divider(height: 30),
             Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis nulla vestibulum, bibendum magna a, eleifend est. Suspendisse potenti. In hac habitasse platea dictumst. Proin in urna at felis dictum dignissim.',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+              serviceDetails['remarks'],
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
                     color: Colors.black,
                   ),
             ),
-            const Divider(),
-            Text(
-              'Accepted By',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black45,
-                  ),
+            const Divider(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LabelWithText(
+                  label: '#${serviceDetails['refugee']['id']}',
+                  text: serviceDetails['refugee']['name'],
+                ),
+                LabelWithText(
+                  alignment: CrossAxisAlignment.end,
+                  label: 'Phone Number',
+                  text: serviceDetails['refugee']['phone'],
+                ),
+              ],
             ),
-            const SizedBox(height: 5),
-            Text(
-              'Some NGO Pvt.Ltd',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+            const Divider(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LabelWithText(
+                  label: 'Disaster',
+                  text: serviceDetails['refugee']['disaster']['name'],
+                ),
+                if (serviceDetails['refugee']['camp'] != null)
+                  LabelWithText(
+                    alignment: CrossAxisAlignment.end,
+                    label: 'Camp',
+                    text: serviceDetails['refugee']['camp']['name'],
                   ),
+              ],
             ),
+            if (serviceDetails['accepted_by'] != null)
+              const Divider(height: 30),
+            if (serviceDetails['accepted_by'] != null)
+              Text(
+                'Accepted By',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black45,
+                    ),
+              ),
+            if (serviceDetails['accepted_by'] != null)
+              const SizedBox(height: 5),
+            if (serviceDetails['accepted_by'] != null)
+              Text(
+                serviceDetails['accepted_by_details']['name'],
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+              ),
           ],
         ),
       ),

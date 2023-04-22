@@ -17,9 +17,21 @@ class ManageEmergencyServiceRequestsBloc extends Bloc<
           supabaseClient.from('emergency_service_requests');
       try {
         if (event is GetAllEmergencyServiceRequestsEvent) {
-          List<dynamic> temp = await queryTable.select().order(
-                'created_at',
-              );
+          List<dynamic> temp = [];
+
+          if (event.serviceId != null) {
+            temp = await queryTable
+                .select()
+                .eq('status', event.status)
+                .eq('emergency_service_id', event.serviceId)
+                .order(
+                  'created_at',
+                );
+          } else {
+            temp = await queryTable.select().eq('status', event.status).order(
+                  'created_at',
+                );
+          }
 
           List<Map<String, dynamic>> serviceRequests =
               temp.map((e) => e as Map<String, dynamic>).toList();
@@ -41,6 +53,20 @@ class ManageEmergencyServiceRequestsBloc extends Bloc<
                   .from('ngos')
                   .select('*')
                   .eq('user_id', serviceRequests[i]['accepted_by'])
+                  .maybeSingle();
+            }
+
+            serviceRequests[i]['refugee']['disaster'] = await supabaseClient
+                .from('disasters')
+                .select('*')
+                .eq('id', serviceRequests[i]['refugee']['disaster_id'])
+                .maybeSingle();
+
+            if (serviceRequests[i]['refugee']['camp_id'] != null) {
+              serviceRequests[i]['refugee']['camp'] = await supabaseClient
+                  .from('camps')
+                  .select('*')
+                  .eq('id', serviceRequests[i]['refugee']['camp_id'])
                   .maybeSingle();
             }
           }
