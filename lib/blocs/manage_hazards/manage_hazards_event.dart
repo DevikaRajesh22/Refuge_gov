@@ -21,7 +21,12 @@ class DeleteHazardEvent extends ManageHazardsEvent {
 }
 
 class GetAllHazardsEvent extends ManageHazardsEvent {
-  final String? query;
+  final String? status, level;
+  final int? disasterId;
 
-  GetAllHazardsEvent({this.query});
+  GetAllHazardsEvent({
+    this.status,
+    this.level,
+    this.disasterId,
+  });
 }
